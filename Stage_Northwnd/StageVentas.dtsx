@@ -1,0 +1,1217 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2024 12:02:04 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-CLDSTUQR"
+  DTS:CreatorName="LAPTOP-CLDSTUQR\VASS"
+  DTS:DTSID="{BAFE0037-1EF7-4C51-B23B-F39524C639F0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="StageVentas"
+  DTS:PackageType="5"
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{4452B9A9-AE30-41F2-B996-2912E0E4A4FD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.LOAD_NORTHWND]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1A630EA2-1F0B-4C0D-A01C-9B0BB14C0D3B}"
+      DTS:ObjectName="LocalHost.LOAD_NORTHWND">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=LOAD_NORTHWND;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{1A630EA2-1F0B-4C0D-A01C-9B0BB14C0D3B}LocalHost.LOAD_NORTHWND;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.NORTHWND_METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8A5917CC-BB94-47B4-99FC-1BE4729BA9BD}"
+      DTS:ObjectName="LocalHost.NORTHWND_METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=NORTHWND_METADATA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{8A5917CC-BB94-47B4-99FC-1BE4729BA9BD}LocalHost.NORTHWND_METADATA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.STAGE_NORTHWND]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1B0D846C-0059-48D5-99D5-4A85A624979B}"
+      DTS:ObjectName="LocalHost.STAGE_NORTHWND">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=STAGE_NORTHWND;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{1B0D846C-0059-48D5-99D5-4A85A624979B}LocalHost.STAGE_NORTHWND;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7517B163-E952-4533-B522-B83F25061EF0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLCountRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D655F11-25AB-496C-852A-05C5A75F05B8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLExecution">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FADC3F47-30A8-4C9B-8AAC-AE639728C68F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLExecutionLastOrder">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{88836C87-A525-49E7-8B23-3350F88CBA85}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETLExecutionLastOrderDetails">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFStage_Ventas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{580ACB48-8A0E-46FB-8A33-83759CF0EB34}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFStage_Ventas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFStage_Ventas.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{2E06FD89-A605-4365-9F08-C88422BCCCFA}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{9308CF59-E320-4A64-A228-E3B3FECB1765}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFStage_Ventas.EventHandlers[OnPostExecute]\UpdateETLCountRow_North_Metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{97DB1C84-1122-48DA-8D4A-01E1ABAE9A22}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="UpdateETLCountRow_North_Metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{8A5917CC-BB94-47B4-99FC-1BE4729BA9BD}"
+                  SQLTask:SqlStatementSource="UPDATE ETLExecution&#xA;SET ETLCountRows = ?&#xA;WHERE ID = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="User::ETLCountRows"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="User::ETLExecution"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="3"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+        <DTS:EventHandler
+          DTS:refId="Package\DFStage_Ventas.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{82C21914-5885-44EA-82BE-9083FEBECCB6}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{694B4E94-A88B-4A9B-A544-4FEA73162406}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFStage_Ventas.EventHandlers[OnPreExecute]\GetID"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{395AFA53-E169-47D2-B52B-A1874D55D3B1}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="GetID"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{8A5917CC-BB94-47B4-99FC-1BE4729BA9BD}"
+                  SQLTask:SqlStatementSource="SELECT TOP(1) ID FROM ETLExecution&#xA;WHERE PackageName=?&#xA;ORDER BY ID Desc"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::ETLExecution" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\DFStage_Ventas.EventHandlers[OnPreExecute]\Insertar_Northwnd_Metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Tarea Ejecutar SQL"
+              DTS:DTSID="{DB837A3D-6F65-4263-BB5B-7AC8D52AA38B}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Insertar_Northwnd_Metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{8A5917CC-BB94-47B4-99FC-1BE4729BA9BD}"
+                  SQLTask:SqlStatementSource="INSERT INTO ETLExecution(UserName, MachineName, PackageName,ETLLoad) VALUES(?,?,?,GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="0"
+                    SQLTask:DtsVariableName="System::UserName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="1"
+                    SQLTask:DtsVariableName="System::MachineName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                  <SQLTask:ParameterBinding
+                    SQLTask:ParameterName="2"
+                    SQLTask:DtsVariableName="System::PackageName"
+                    SQLTask:ParameterDirection="Input"
+                    SQLTask:DataType="130"
+                    SQLTask:ParameterSize="-1" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\DFStage_Ventas.EventHandlers[OnPreExecute].PrecedenceConstraints[Restricción]"
+              DTS:CreationName=""
+              DTS:DTSID="{9CA95709-5A93-4BE0-B6FE-122CD39541D1}"
+              DTS:From="Package\DFStage_Ventas.EventHandlers[OnPreExecute]\Insertar_Northwnd_Metadata"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Restricción"
+              DTS:To="Package\DFStage_Ventas.EventHandlers[OnPreExecute]\GetID" />
+          </DTS:PrecedenceConstraints>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFStage_Ventas\AddColumns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="AddColumns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFStage_Ventas\AddColumns.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFStage_Ventas\AddColumns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output].Columns[ETLLoad]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output].Columns[ETLLoad]"
+                      name="ETLLoad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output].Columns[ETLExecution]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output].Columns[ETLExecution]"
+                      name="ETLExecution"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::ETLExecution]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::ETLExecution]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFStage_Ventas\AddColumns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFStage_Ventas\ContarFilas"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="ContarFilas">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::ETLCountRows</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFStage_Ventas\ContarFilas.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFStage_Ventas\ContarFilas.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFStage_Ventas\ContarFilas.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFStage_Ventas\Load_Northwnd_Ventas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Load_Northwnd_Ventas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT O.OrderID,
+CAST(O.CustomerID AS CHAR(5)) AS CustomerID,
+O.EmployeeID,
+OD.ProductID,
+O.OrderDate,
+CAST(((OD.UnitPrice * OD.Quantity) - OD.Discount) AS decimal(15,2)) AS Total,
+OD.Quantity,
+OD.UnitPrice,
+OD.Discount
+FROM [LOAD_NORTHWND].[dbo].[Orders] O INNER JOIN [LOAD_NORTHWND].[dbo].[Order Details] OD
+ON O.OrderID = OD.OrderID 
+WHERE O.ETLExecution = ? AND OD.ETLExecution= ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parámetro0:Input",{FADC3F47-30A8-4C9B-8AAC-AE639728C68F};"Parámetro1:Input",{88836C87-A525-49E7-8B23-3350F88CBA85};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.LOAD_NORTHWND]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.LOAD_NORTHWND]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[OrderID]"
+                      name="OrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Total]"
+                      name="Total"
+                      precision="15"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Discount]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Discount]"
+                      name="Discount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      dataType="numeric"
+                      name="Total"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
+                      dataType="r4"
+                      name="Discount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      dataType="numeric"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      name="Total"
+                      precision="15"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i2"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[Discount]"
+                      dataType="r4"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[Discount]"
+                      name="Discount" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Stage_Northwnd_Ventas"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Stage_Ventas]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.STAGE_NORTHWND]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.STAGE_NORTHWND]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[ETLLoad]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ETLLoad"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoad]"
+                      lineageId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output].Columns[ETLLoad]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[ETLExecution]"
+                      cachedDataType="i4"
+                      cachedName="ETLExecution"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[ETLExecution]"
+                      lineageId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output].Columns[ETLExecution]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Cliente_Codigo]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Empleado_Codigo]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Producto_Codigo]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_OrderDate]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[OrderID]"
+                      cachedDataType="i4"
+                      cachedName="OrderID"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_NOrden]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[OrderID]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[Total]"
+                      cachedDataType="numeric"
+                      cachedName="Total"
+                      cachedPrecision="15"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_Monto]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_Unidades]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_PUnitario]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].Columns[Discount]"
+                      cachedDataType="r4"
+                      cachedName="Discount"
+                      externalMetadataColumnId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_Descuento]"
+                      lineageId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output].Columns[Discount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoad]"
+                      dataType="dbTimeStamp"
+                      name="ETLLoad" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[ETLExecution]"
+                      dataType="i4"
+                      name="ETLExecution" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Cliente_Codigo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Cliente_Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Empleado_Codigo]"
+                      dataType="i4"
+                      name="Empleado_Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Producto_Codigo]"
+                      dataType="i4"
+                      name="Producto_Codigo" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="Ventas_OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_NOrden]"
+                      dataType="i4"
+                      name="Ventas_NOrden" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_Monto]"
+                      dataType="numeric"
+                      name="Ventas_Monto"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_Unidades]"
+                      dataType="i4"
+                      name="Ventas_Unidades" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_PUnitario]"
+                      dataType="numeric"
+                      name="Ventas_PUnitario"
+                      precision="15"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input].ExternalColumns[Ventas_Descuento]"
+                      dataType="numeric"
+                      name="Ventas_Descuento"
+                      precision="15"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFStage_Ventas.Paths[Derived Column Output]"
+              endId="Package\DFStage_Ventas\ContarFilas.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFStage_Ventas\AddColumns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFStage_Ventas.Paths[OLE DB Source Output]"
+              endId="Package\DFStage_Ventas\AddColumns.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFStage_Ventas\Load_Northwnd_Ventas.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFStage_Ventas.Paths[Row Count Output 1]"
+              endId="Package\DFStage_Ventas\Stage_Northwnd_Ventas.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFStage_Ventas\ContarFilas.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GetETLExecutionLast"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{783600C7-3878-4222-8A37-F07F6D25978C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GetETLExecutionLast"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1A630EA2-1F0B-4C0D-A01C-9B0BB14C0D3B}"
+          SQLTask:SqlStatementSource="DECLARE @ETLExecutionOrder int&#xA;DECLARE @ETLExecutionOrderDetail int&#xA;&#xA;SET @ETLExecutionOrder =(SELECT MAX(ETLExecution) FROM [LOAD_NORTHWND].[dbo].[Orders])&#xA;SET @ETLExecutionOrderDetail = (SELECT MAX(ETLExecution) FROM [LOAD_NORTHWND].[dbo].[Order Details])&#xA;&#xA;SELECT @ETLExecutionOrder, @ETLExecutionOrderDetail"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::ETLExecutionLastOrder" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::ETLExecutionLastOrderDetails" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar_Stage_Vemtas"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{EF8E952D-FBD1-44C9-9BB4-2A4C3C67CDED}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar_Stage_Vemtas"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1B0D846C-0059-48D5-99D5-4A85A624979B}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Stage_Ventas;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{5D8C6779-3B64-4A54-BFF2-0A49C32736B4}"
+      DTS:From="Package\Limpiar_Stage_Vemtas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\GetETLExecutionLast" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5BC9F2D9-2BC7-4521-BBB3-92B757051DFA}"
+      DTS:From="Package\GetETLExecutionLast"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\DFStage_Ventas" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFStage_Ventas"
+          TopLeft="299,187" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\GetETLExecutionLast"
+          TopLeft="285,103" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Limpiar_Stage_Vemtas"
+          TopLeft="282,23" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="378.25,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="379.25,145">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFStage_Ventas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="197,42"
+          Id="Package\DFStage_Ventas\Load_Northwnd_Ventas"
+          TopLeft="260,18" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\DFStage_Ventas\AddColumns"
+          TopLeft="288,106" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\DFStage_Ventas\Stage_Northwnd_Ventas"
+          TopLeft="421,191" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\DFStage_Ventas\ContarFilas"
+          TopLeft="476,108" />
+        <EdgeLayout
+          Id="Package\DFStage_Ventas.Paths[Row Count Output 1]"
+          TopLeft="543.5,150">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22,41"
+              Start="0,0"
+              End="-22,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-18,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18,20.5"
+                    Point2="-22,20.5"
+                    Point3="-22,24.5" />
+                  <mssgle:LineSegment
+                    End="-22,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFStage_Ventas.Paths[OLE DB Source Output]"
+          TopLeft="358.75,60">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFStage_Ventas.Paths[Derived Column Output]"
+          TopLeft="430,128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46,0"
+              Start="0,0"
+              End="38.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFStage_Ventas.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="108,42"
+          Id="Package\DFStage_Ventas.EventHandlers[OnPreExecute]\GetID"
+          TopLeft="93,113" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\DFStage_Ventas.EventHandlers[OnPreExecute]\Insertar_Northwnd_Metadata"
+          TopLeft="51,14" />
+        <EdgeLayout
+          Id="Package\DFStage_Ventas.EventHandlers[OnPreExecute].PrecedenceConstraints[Restricción]"
+          TopLeft="161.5,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,57"
+              Start="0,0"
+              End="-14.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="-4,28.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,28.5"
+                    Point2="-14.5,28.5"
+                    Point3="-14.5,32.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\DFStage_Ventas.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="271,42"
+          Id="Package\DFStage_Ventas.EventHandlers[OnPostExecute]\UpdateETLCountRow_North_Metadata"
+          TopLeft="240,46" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFStage_Ventas\Load_Northwnd_Ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFStage_Ventas\Stage_Northwnd_Ventas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
